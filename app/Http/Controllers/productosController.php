@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,7 +14,8 @@ use App\Http\Requests\StoreProductoRequests;
 use App\Http\Requests\UpdateProductoRequests;
 use Illuminate\Support\Facades\App;
 use Laracasts\Flash\Flash;
-use Barryvdh\DomPDF\Facade;
+use PDF;
+
 
 
 class productosController extends Controller
@@ -136,12 +138,10 @@ class productosController extends Controller
 
    public function generarPdf(){
 
-      //  $pdf= PDF::;
 
-       $pdf = App::make('dompdf.wrapper');
-       $pdf->loadHTML('public_path().\'myfile.html\'');
-       return $pdf->download('invoice.pdf');
-
+       $productos= producto::all();
+       $pdf = PDF::loadView('template.admin.productos.pdf',['productos'=>$productos]);
+       return $pdf->download('productos.pdf');
 
 
 
