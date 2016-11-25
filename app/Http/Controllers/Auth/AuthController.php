@@ -75,6 +75,11 @@ class AuthController extends Controller
 
     protected function getLogin()
     {
+
+
         return view('template.admin.auth.login');
+
+
+
     }
 }
