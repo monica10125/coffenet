@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\factura;
 use App\pedido;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
+use PDF;
 
 class FacturasController extends Controller
 {
@@ -59,6 +61,41 @@ class FacturasController extends Controller
 
         flash::error('se ha eliminado la orden no. '.$pedido->id,'danger');
         return redirect()->route('admin.pedidos.verPedidosAdmi');
+
+
+    }
+
+    public function descargarFactura($id){
+
+
+        $pedido = pedido::find($id);
+
+         $userId= $pedido->user_id;
+
+         $user= User::find($userId);
+        $facturadirijida= $user->usu_nom. ' '. $user->usu_ape;
+        $fechaSolicitud= $pedido->fecha;
+        $factura=$pedido->factura;
+        $facturador= $factura->facturador;
+        $iva= 19;
+
+        $valorPagar=$factura->valor;
+        $subtotal= $factura->valor-($factura->valor*$iva/100);
+        $menus= $pedido->menus;
+        $menus=$menus->toArray();
+
+
+
+
+        $datosFactura=['usuario'=>$facturadirijida,'fecha'=>$fechaSolicitud, 'facturador'=>$facturador, 'iva'=>$iva,'subtotal'=>$subtotal,
+        'total'=>$valorPagar, 'consecutivo'=>$id];
+
+        $pdf = PDF::loadView('template.cliente.pdfFactura',['factura'=>$datosFactura]);
+        return $pdf->download('factura.pdf');
+
+
+    // return view('template.cliente.pdfFactura')->with('factura',$datosFactura);
+
 
 
     }
