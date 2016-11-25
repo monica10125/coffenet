@@ -161,6 +161,11 @@ Route::group(['prefix'=>'cliente','middleware'=>'auth'],function(){
         'as'=>'cliente.pedidos.eliminarPedido' // este es el nombre de la ruta  conclusion daniel esta llama las funciones de los controladores desde este archivo por eso colo admin es el nombre de la ruta le pone un punto para acceder al metodo
     ]);
 
+	Route::get('pedidos/{id}/generarFactura',[ //la ruta esta recibiendo un id esta es la identificacion de la ruta para que la ruta tome el valor como opcional se podra al final del parametro ?
+			'uses'=>'FacturasController@descargarFactura', // de esta manera se invoca el controlador el @ invoca el metodo que utiliza
+			'as'=>'cliente.factura.descargarPdf' // este es el nombre de la ruta  conclusion daniel esta llama las funciones de los controladores desde este archivo por eso colo admin es el nombre de la ruta le pone un punto para acceder al metodo
+	]);
+
 
 
 });
