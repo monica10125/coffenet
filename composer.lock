@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f74beba898d7890d7fe2ae24cfa1379",
-    "content-hash": "f5cae8095e7d21d1a48ea111ae29604f",
+    "hash": "ea4a205ebbbc86244d26bf7978bb0d99",
+    "content-hash": "e0a99944b099841e6078aeacbf8a8061",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -2116,6 +2116,49 @@
                 "dump"
             ],
             "time": "2016-06-29 05:40:00"
+        },
+        {
+            "name": "thujohn/pdf",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thujohn/pdf-l4.git",
+                "reference": "8e3a35a1ec54b38cff9ccef5069b628749c1b28b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thujohn/pdf-l4/zipball/8e3a35a1ec54b38cff9ccef5069b628749c1b28b",
+                "reference": "8e3a35a1ec54b38cff9ccef5069b628749c1b28b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Thujohn\\Pdf": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thujohn",
+                    "email": "jonathan.thuau@gmail.com"
+                }
+            ],
+            "description": "dompdf for Laravel 4",
+            "keywords": [
+                "dompdf",
+                "laravel",
+                "laravel4",
+                "pdf"
+            ],
+            "time": "2014-12-02 17:45:22"
         },
         {
             "name": "vlucas/phpdotenv",
