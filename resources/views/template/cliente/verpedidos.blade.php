@@ -40,7 +40,7 @@
                     <td class="text-center">
 
                         @if($pedido->estado!=3)
-                            <div class="btn-group"  role="group">
+                            <div class="btn-group"   role="group">
 
 
 
@@ -51,7 +51,7 @@
 
                         @else
 
-                            <a href="{{route('admin.facturas.crearFactura',$pedido->id)}}" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-arrow-down"></span></a>
+                            <a href="{{route('cliente.factura.descargarPdf',$pedido->id)}}" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-arrow-down"></span></a>
 
                         @endif
 
@@ -65,4 +65,7 @@
     <div class="text-right col-md-offset-10 col-xs-offset-10 col-sm-offset-10 col-lg-offset-10    col-md-2 col-xs-2 col-sm-2 col-lg-2">
 
     </div>
+
+
+
 @endsection
